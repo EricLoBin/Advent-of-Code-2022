@@ -9,7 +9,7 @@ def get_input(day):
         return open(f"inputs/{day}.txt", "r")
     else:
         cookies = {'session': f"{open('cookie.txt', 'r').read()}"}
-        url = f"https://adventofcode.com/2021/day/{day}/input"
+        url = f"https://adventofcode.com/2022/day/{day}/input"
         data = requests.post(url, cookies=cookies)
 
         file = open(f"inputs/{day}.txt", "x")
