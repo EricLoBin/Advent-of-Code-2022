@@ -22,8 +22,11 @@ multiverse.add((0, 0, tuple(), "AA")) # Total, flow, open valves, current valve
 
 for i in range(MINUTES):
     new_multiverse = set()
+    avg_flow = sum(i[1] for i in multiverse) / len(multiverse)
     for universe in multiverse:
         total, flow, open_valves, current_valve = universe
+        if (flow == 0 and i % 5 == 0 and i > 0) or (flow < avg_flow and len(multiverse) > 1000):
+            continue
         total += flow
         if current_valve not in open_valves and valves[current_valve]["flow"] > 0:
             # open the valve
