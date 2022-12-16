@@ -49,14 +49,6 @@ for i in range(MINUTES):
         for path in valves[valve1]["paths"]:
             for path2 in valves[valve2]["paths"]:
                 new_multiverse.add((total, flow, open_valves, tuple(sorted([*(path, path2)]))))
-        # if current_valve not in open_valves and valves[current_valve]["flow"] > 0:
-        #     # open the valve
-        #     new_open_valves = tuple(sorted([*open_valves, current_valve]))
-        #     new_flow = valves[current_valve]["flow"] + flow
-        #     new_multiverse.add((total, new_flow, new_open_valves, current_valve))
-        # for path in valves[current_valve]["paths"]:
-        #     # go to the next valve
-        #     new_multiverse.add((total, flow, open_valves, path))
     multiverse = new_multiverse
 
 print(max(i[0] for i in multiverse))
